@@ -134,3 +134,28 @@
 .playAgainImgDiv img {
   width: 70%;
 }
+
+@media (max-width: 768px) {
+  .status {
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .playAgainButtonsDiv button {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .square {
+    height: 20vh;
+  }
+
+  .playAgainButtonsDiv button {
+    font-size: 13px;
+  }
+
+  .mainModalDiv {
+    width: 70%;
+  }
+}
