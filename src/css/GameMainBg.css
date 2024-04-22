@@ -1,5 +1,6 @@
 .mainBgGame {
   width: 100%;
+  height: 100vh;
 }
 
 .subdivBgGame {
@@ -185,10 +186,6 @@
 }
 
 @media (max-width: 1200px) {
-  .mainBgGame {
-    height: 100%;
-  }
-
   .leftSideMainDiv h2 {
     font-size: 40px !important;
   }
@@ -224,5 +221,17 @@
 
   .rightSideMainDiv {
     width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .mainBgGame {
+    height: 80vh;
+  }
+}
+
+@media (max-width: 400px) {
+  .mainBgGame {
+    height: 100vh;
   }
 }
