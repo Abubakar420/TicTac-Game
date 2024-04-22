@@ -8,7 +8,11 @@ import GameMainBg from '../components/GameMainBg';
 // Home Component
 export default function Home() {
   return (
-    <div>
+    <div
+      style={{
+        overflowY: 'hidden',
+      }}
+    >
       <GameMainBg />
       {/* <TicTac /> */}
     </div>

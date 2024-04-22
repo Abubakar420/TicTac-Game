@@ -1,5 +1,4 @@
 .mainBgGame {
-  margin-bottom: 5%;
   width: 100%;
 }
 
@@ -7,7 +6,8 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 5%;
+  align-items: center;
+  padding: 2.8%;
 }
 
 .leftSideMainDiv {
@@ -37,10 +37,23 @@
   width: 49%;
 }
 
+.rightSideMainDiv img {
+  width: 100%;
+}
 .hidden {
   display: none;
 }
 
+.leftSideMainDiv h6 {
+  font-size: 11px;
+  margin: 3% 0;
+  display: flex;
+  justify-content: flex-end;
+  /* align-items: flex-end; */
+  /* float: right; */
+  color: #990000;
+  width: 100%;
+}
 /* buttons css */
 .leftSideMainDiv .btn {
   background-color: transparent;
@@ -143,7 +156,7 @@
 
 /*lightup button*/ {
   top: 0;
-  height: 50%;
+  /* height: 50%; */
   width: 80%;
   border-radius: 30px;
 }
