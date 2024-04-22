@@ -1,22 +1,29 @@
 /* eslint-disable no-use-before-define */
-
 import React, { useState } from 'react';
-import '../css/TicTac.css'; // Importing CSS file
+import TicTacBg from '../assets/pngwing.com (1).png';
+import '../css/TicTac.css';
 
 function TicTacToe() {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
   const [gameOver, setGameOver] = useState(false);
+  const [winner, setWinner] = useState(null);
 
   const handleClick = (index) => {
-    const newBoard = [...board];
-    if (calculateWinner(newBoard) || newBoard[index] || gameOver) {
-      return;
+    if (gameOver || winner || board[index]) {
+      return; // Return early if the game is over or there's already a winner or the square is already filled
     }
+
+    const newBoard = [...board];
     newBoard[index] = xIsNext ? 'X' : 'O';
     setBoard(newBoard);
     setXIsNext(!xIsNext);
-    if (calculateDraw(newBoard)) {
+
+    const calculatedWinner = calculateWinner(newBoard);
+    if (calculatedWinner) {
+      setGameOver(true);
+      setWinner(calculatedWinner);
+    } else if (calculateDraw(newBoard)) {
       setGameOver(true);
     }
   };
@@ -29,7 +36,6 @@ function TicTacToe() {
     );
   };
 
-  const winner = calculateWinner(board);
   let status;
   if (winner) {
     status = `Winner: ${winner}`;
@@ -43,11 +49,7 @@ function TicTacToe() {
     setBoard(Array(9).fill(null));
     setXIsNext(true);
     setGameOver(false);
-  };
-
-  const handleQuit = () => {
-    // Handle quitting the game, e.g., navigate to a different page
-    console.log('Quit the game');
+    setWinner(null);
   };
 
   return (
@@ -70,14 +72,24 @@ function TicTacToe() {
           {renderSquare(8)}
         </div>
       </div>
-      {gameOver && (
-        <div className="mainModalDiv">
-          <button type="button" onClick={handlePlayAgain}>
-            Play again
-          </button>
-          <button type="button" onClick={handleQuit}>
-            Quit
-          </button>
+      {(gameOver || winner) && (
+        <div className="mainModalDiv animationDiv">
+          <div className="playAgainImgDiv">
+            <img src={TicTacBg} alt=".." />
+          </div>
+          <div className="playAgainButtonsDiv">
+            <button type="button" onClick={handlePlayAgain}>
+              Play again
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                window.location.href = '/';
+              }}
+            >
+              Quit
+            </button>
+          </div>
         </div>
       )}
     </div>

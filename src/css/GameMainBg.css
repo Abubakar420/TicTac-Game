@@ -43,6 +43,8 @@
 
 /* buttons css */
 .leftSideMainDiv .btn {
+  background-color: transparent;
+  border: none;
   position: relative;
   top: 0;
   left: 0;
