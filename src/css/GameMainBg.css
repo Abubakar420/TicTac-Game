@@ -40,6 +40,7 @@
 .rightSideMainDiv img {
   width: 100%;
 }
+
 .hidden {
   display: none;
 }
@@ -54,6 +55,7 @@
   color: #990000;
   width: 100%;
 }
+
 /* buttons css */
 .leftSideMainDiv .btn {
   background-color: transparent;
@@ -180,4 +182,47 @@
 .leftSideMainDiv .btn:nth-child(3)::after {
   background: #990000;
   box-shadow: 0 0 5px #990000, 0 0 15px #990000, 0 0 30px #990000, 0 0 60px #990000;
+}
+
+@media (max-width: 1200px) {
+  .mainBgGame {
+    height: 100%;
+  }
+
+  .leftSideMainDiv h2 {
+    font-size: 40px !important;
+  }
+
+  .rightSideMainDiv img {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .leftSideMainDiv h2 {
+    font-size: 20px !important;
+  }
+
+  .leftSideMainDiv p {
+    font-size: 16px;
+  }
+
+  .leftSideMainDiv .btn {
+    width: 130px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .subdivBgGame {
+    flex-direction: column;
+  }
+
+  .leftSideMainDiv {
+    width: 100%;
+  }
+
+  .rightSideMainDiv {
+    width: 100%;
+  }
 }
