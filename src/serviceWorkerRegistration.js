@@ -1,15 +1,4 @@
-// This optional code is used to register a service worker.
-// register() is not called by default.
-
-// This lets the app load faster on subsequent visits in production, and gives
-// it offline capabilities. However, it also means that developers (and users)
-// will only see deployed updates on subsequent visits to a page, after all the
-// existing tabs open on the page have been closed, since previously cached
-// resources are updated in the background.
-
-// To learn more about the benefits of this model and instructions on how to
-// opt-in, read https://cra.link/PWA
-
+/* eslint-disable no-console */
 const isLocalhost = Boolean(
   // eslint-disable-next-line operator-linebreak
   window.location.hostname === 'localhost' ||
@@ -38,16 +27,6 @@ export function register(config) {
         // This is running on localhost. Let's check if a service worker still exists or not.
         // eslint-disable-next-line no-use-before-define
         checkValidServiceWorker(swUrl, config);
-
-        // Add some additional logging to localhost, pointing developers to the
-        // service worker/PWA documentation.
-        navigator.serviceWorker.ready.then(() => {
-          console.log(
-            // eslint-disable-next-line operator-linebreak
-            'This web app is being served cache-first by a service ' +
-              'worker. To learn more, visit https://cra.link/PWA',
-          );
-        });
       } else {
         // Is not localhost. Just register service worker
         // eslint-disable-next-line no-use-before-define
@@ -70,26 +49,13 @@ function registerValidSW(swUrl, config) {
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
-              // At this point, the updated precached content has been fetched,
-              // but the previous service worker will still serve the older
-              // content until all client tabs are closed.
-              console.log(
-                // eslint-disable-next-line operator-linebreak
-                'New content is available and will be used when all ' +
-                  'tabs for this page are closed. See https://cra.link/PWA.',
-              );
-
               // Execute callback
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
               }
             } else {
-              // At this point, everything has been precached.
-              // It's the perfect time to display a
-              // "Content is cached for offline use." message.
-              console.log('Content is cached for offline use.');
-
               // Execute callback
+              // eslint-disable-next-line no-lonely-if
               if (config && config.onSuccess) {
                 config.onSuccess(registration);
               }
