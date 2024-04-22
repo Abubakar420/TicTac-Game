@@ -1,6 +1,6 @@
 .game {
   text-align: center;
-  background-color: red;
+  height: 100vh;
 }
 
 .status {
@@ -157,5 +157,17 @@
 
   .mainModalDiv {
     width: 70%;
+  }
+}
+
+@media (max-width: 450px) {
+  .game {
+    height: 72vh;
+  }
+}
+
+@media (max-width: 400px) {
+  .game {
+    height: 80vh;
   }
 }
