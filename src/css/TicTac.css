@@ -1,0 +1,114 @@
+.game {
+  text-align: center;
+  background-color: red;
+}
+
+.status {
+  margin: 2% 0;
+  background: black;
+  color: white;
+  width: 33.33%;
+  padding: 3% 0;
+  margin: 1% 0 !important;
+  font-size: 22px;
+  border-radius: 12px;
+  border: solid 1px white;
+}
+
+.board {
+  display: inline-block;
+  width: 100%;
+}
+
+.board-row:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.square {
+  width: 33.33% !important;
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 25vh;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.board-row > .square {
+  float: left;
+}
+
+.board-row:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+@keyframes color {
+  0% {
+    background: #dae8da;
+  }
+
+  20% {
+    background: #2a5257;
+  }
+
+  40% {
+    background: #545936;
+  }
+
+  60% {
+    background: #958d6e;
+  }
+
+  80% {
+    background: #a0bba0;
+  }
+
+  100% {
+    background: #ecf1f1;
+  }
+}
+
+.animationDiv {
+  margin: 0 auto;
+  background: #000000;
+  /* Fallback */
+  animation: color 9s infinite linear;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.7em;
+  overflow-y: hidden;
+}
+
+.toast {
+  background-color: red;
+  width: 50%;
+}
+
+.mainModalDiv {
+  width: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}

@@ -2,13 +2,15 @@
 import React from 'react';
 
 // Importing Components
-import Header from '../components/Header';
+// import TicTac from '../components/TicTac';
+import GameMainBg from '../components/GameMainBg';
 
 // Home Component
 export default function Home() {
   return (
     <div>
-      <Header />
+      <GameMainBg />
+      {/* <TicTac /> */}
     </div>
   );
 }
