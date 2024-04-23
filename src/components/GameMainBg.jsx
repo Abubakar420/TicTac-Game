@@ -24,7 +24,7 @@ export default function Header() {
             <button type="button" className="btn" onClick={handlePlayGame}>
               <a href="#">Play Game</a>
             </button>
-            <h6>Game By Abubakar Rehman</h6>
+            <h6>̷G̷a̷̷m̷̷e̷ ̷B̷̷y̷ ̷A̷̷b̷̷u̷̷b̷a̷̷k̷a̷̷r̷ ̷R̷̷e̷̷h̷̷m̷a̷̷n̷</h6>
           </div>
           <div className="rightSideMainDiv">
             <img src={TicTacBg} alt=".." />

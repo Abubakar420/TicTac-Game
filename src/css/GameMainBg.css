@@ -51,8 +51,6 @@
   margin: 3% 0;
   display: flex;
   justify-content: flex-end;
-  /* align-items: flex-end; */
-  /* float: right; */
   color: #990000;
   width: 100%;
 }
@@ -132,9 +130,7 @@
   transition-delay: 0.5;
 }
 
-.leftSideMainDiv .btn:hover::before
-
-/*lightup button*/ {
+.leftSideMainDiv .btn:hover::before {
   bottom: 0;
   height: 50%;
   width: 80%;
@@ -155,31 +151,25 @@
   transition-delay: 0.5;
 }
 
-.leftSideMainDiv .btn:hover::after
-
-/*lightup button*/ {
+.leftSideMainDiv .btn:hover::after {
   top: 0;
-  /* height: 50%; */
   width: 80%;
   border-radius: 30px;
 }
 
 .leftSideMainDiv .btn:nth-child(1)::before,
-/*chnage 1*/
 .leftSideMainDiv .btn:nth-child(1)::after {
   background: #ff1f71;
   box-shadow: 0 0 5px #ff1f71, 0 0 15px #ff1f71, 0 0 30px #ff1f71, 0 0 60px #ff1f71;
 }
 
 .leftSideMainDiv .btn:nth-child(2)::before,
-/* 2*/
 .leftSideMainDiv .btn:nth-child(2)::after {
   background: #2db2ff;
   box-shadow: 0 0 5px #2db2ff, 0 0 15px #2db2ff, 0 0 30px #2db2ff, 0 0 60px #2db2ff;
 }
 
 .leftSideMainDiv .btn:nth-child(3)::before,
-/* 3*/
 .leftSideMainDiv .btn:nth-child(3)::after {
   background: #990000;
   box-shadow: 0 0 5px #990000, 0 0 15px #990000, 0 0 30px #990000, 0 0 60px #990000;

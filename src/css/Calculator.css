@@ -9,7 +9,7 @@
 
 .calculatorMainDiv {
   width: 100%;
-  background-color: red;
+  background-color: black;
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -69,7 +69,6 @@
 
   100% {
     background-color: red;
-    /* Back to start color */
   }
 }
 
@@ -88,6 +87,7 @@
   margin-bottom: 3%;
   border-radius: 20px;
   font-size: 22px;
+  color: black;
 }
 
 .buttons {
@@ -105,4 +105,20 @@
 .clearBtn {
   width: 100% !important;
   margin-top: 3%;
+}
+
+@media (max-width: 768px) {
+  .calculator {
+    width: 35%;
+  }
+}
+
+@media (max-width: 500px) {
+  .calculator {
+    width: 65%;
+  }
+
+  .policeLight h1 {
+    font-size: 16px;
+  }
 }

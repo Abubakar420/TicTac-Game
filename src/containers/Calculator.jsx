@@ -10,21 +10,17 @@ export default function Home() {
   useEffect(() => {
     const handleKeyPress = (event) => {
       if (event.key >= '0' && event.key <= '9') {
-        // If a number key is pressed, add it to the input
         setInput(input + event.key);
         setLastClickedOperator(false);
       } else if (event.key === '+' || event.key === '-' || event.key === '*' || event.key === '/') {
-        // If an operator key is pressed, add it to the input if the last click wasn't an operator
         if (!lastClickedOperator) {
           setInput(input + event.key);
           setLastClickedOperator(true);
         }
       } else if (event.key === '.' && !input.includes('.')) {
-        // If the dot key is pressed and there's no dot already in the input, add it
         setInput(`${input}.`);
         setLastClickedOperator(false);
       } else if (event.key === 'Enter') {
-        // If the Enter key is pressed, calculate the result
         calculateResult();
       }
     };
@@ -42,16 +38,15 @@ export default function Home() {
     } else if (value === 'C') {
       setInput('');
       setResult('');
-      setLastClickedOperator(false); // Reset last clicked operator
+      setLastClickedOperator(false);
     } else if (['+', '-', '*', '/'].includes(value)) {
       if (!lastClickedOperator) {
-        // Only allow operator if last click wasn't an operator
         setInput(input + value);
         setLastClickedOperator(true);
       }
     } else {
       setInput(input + value);
-      setLastClickedOperator(false); // Reset last clicked operator when a number button is clicked
+      setLastClickedOperator(false);
     }
   };
 
