@@ -11,7 +11,7 @@ function TicTacToe() {
 
   const handleClick = (index) => {
     if (gameOver || winner || board[index]) {
-      return; // Return early if the game is over or there's already a winner or the square is already filled
+      return;
     }
 
     const newBoard = [...board];
