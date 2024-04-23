@@ -1,26 +1,37 @@
-/* eslint-disable no-eval */
-// Init
+/* eslint-disable no-new-func */
 import React, { useState } from 'react';
 
-// Home Component
 export default function Home() {
   const [input, setInput] = useState('');
-  const [result, setResult] = useState('');
+  const [setResult] = useState('');
+  const [lastClickedOperator, setLastClickedOperator] = useState(false);
 
   const handleClick = (value) => {
     if (value === '=') {
       try {
-        setResult(eval(input));
+        const evaluate = new Function(`return ${input}`);
+        const res = evaluate();
+        setInput(res.toString());
+        setResult(res.toString());
       } catch (error) {
         setResult('Error');
       }
     } else if (value === 'C') {
       setInput('');
       setResult('');
+      setLastClickedOperator(false); // Reset last clicked operator
+    } else if (['+', '-', '*', '/'].includes(value)) {
+      if (!lastClickedOperator) {
+        // Only allow operator if last click wasn't an operator
+        setInput(input + value);
+        setLastClickedOperator(true);
+      }
     } else {
       setInput(input + value);
+      setLastClickedOperator(false); // Reset last clicked operator when a number button is clicked
     }
   };
+
   return (
     <div className="calculatorMainDiv">
       <div className="calculator">
@@ -28,7 +39,7 @@ export default function Home() {
           type="text"
           value={input}
           placeholder="0"
-          onChange={(e) => setInput(e.target.value)}
+          readOnly // Make the input field read-only to prevent manual input
         />
         <div className="buttons">
           <button type="button" onClick={() => handleClick('7')}>
@@ -67,23 +78,22 @@ export default function Home() {
           <button type="button" onClick={() => handleClick('*')}>
             *
           </button>
-          <button type="button" onClick={() => handleClick('0')}>
-            0
-          </button>
           <button type="button" onClick={() => handleClick('.')}>
             .
           </button>
-          <button type="button" onClick={() => handleClick('=')}>
-            =
+          <button type="button" onClick={() => handleClick('0')}>
+            0
           </button>
           <button type="button" onClick={() => handleClick('/')}>
             /
           </button>
-          <button type="button" onClick={() => handleClick('C')}>
+          <button type="button" onClick={() => handleClick('=')}>
+            =
+          </button>
+          <button type="button" onClick={() => handleClick('C')} className="clearBtn">
             C
           </button>
         </div>
-        <div className="result">{result}</div>
       </div>
     </div>
   );
