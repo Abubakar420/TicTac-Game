@@ -85,7 +85,6 @@
 .animationDiv {
   margin: 0 auto;
   background: #000000;
-  /* Fallback */
   animation: color 9s infinite linear;
   text-align: center;
   display: flex;
