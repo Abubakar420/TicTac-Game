@@ -1,6 +1,7 @@
 /* Importing all CSS files */
 @import url('./TicTac.css');
 @import url('./GameMainBg.css');
+@import url('./Calculator.css');
 
 /* Defaults */
 * {
