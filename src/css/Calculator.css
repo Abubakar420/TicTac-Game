@@ -19,27 +19,56 @@
 
 @keyframes animateBackground {
   0% {
-    background-color: #ffffff;
-    /* Start color */
+    background-color: red;
   }
 
   25% {
-    background-color: #913d3d;
-    /* End color */
+    background-color: blue;
   }
 
   50% {
-    background-color: #000000;
-    /* End color */
+    background-color: red;
   }
 
   75% {
-    background-color: #b32b2b;
-    /* End color */
+    background-color: blue;
   }
 
   100% {
-    background-color: #ffffff;
+    background-color: red;
+  }
+}
+
+.policeLight {
+  text-align: center;
+  color: White;
+  width: 100%;
+  border-radius: 20px;
+  margin: 5% 0;
+  padding: 2%;
+  background-color: red;
+  animation: policeLight 0.5s linear infinite;
+}
+
+@keyframes policeLight {
+  0% {
+    background-color: red;
+  }
+
+  25% {
+    background-color: blue;
+  }
+
+  50% {
+    background-color: red;
+  }
+
+  75% {
+    background-color: blue;
+  }
+
+  100% {
+    background-color: red;
     /* Back to start color */
   }
 }
@@ -52,6 +81,7 @@
   align-items: center;
   flex-direction: column;
 }
+
 .calculator input {
   width: 100%;
   padding: 3%;

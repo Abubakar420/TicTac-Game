@@ -69,12 +69,10 @@ export default function Home() {
   return (
     <div className="calculatorMainDiv">
       <div className="calculator">
-        <input
-          type="text"
-          value={input}
-          placeholder="0"
-          readOnly // Make the input field read-only to prevent manual input
-        />
+        <div className="policeLight">
+          <h1>Police Calculator </h1>
+        </div>
+        <input type="text" value={input} placeholder="0" />
         <div className="buttons">
           <button type="button" onClick={() => handleClick('7')}>
             7
