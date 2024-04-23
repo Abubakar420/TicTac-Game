@@ -92,7 +92,6 @@ function TicTacToe() {
   );
 }
 
-// Function to calculate the winner
 const calculateWinner = (squares) => {
   const lines = [
     [0, 1, 2],
@@ -113,7 +112,6 @@ const calculateWinner = (squares) => {
   return null;
 };
 
-// Function to check for a draw
 const calculateDraw = (squares) => {
   return squares.every((square) => square !== null);
 };
