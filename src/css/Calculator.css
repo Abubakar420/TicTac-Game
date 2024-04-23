@@ -1,0 +1,21 @@
+.calculatorMainDiv {
+  width: 100%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator {
+  background-color: blue;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.buttons button {
+  width: 20%;
+  padding: 5%;
+}
