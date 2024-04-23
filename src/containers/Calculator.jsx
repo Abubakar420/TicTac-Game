@@ -1,21 +1,44 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-new-func */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Home() {
   const [input, setInput] = useState('');
   const [setResult] = useState('');
   const [lastClickedOperator, setLastClickedOperator] = useState(false);
 
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key >= '0' && event.key <= '9') {
+        // If a number key is pressed, add it to the input
+        setInput(input + event.key);
+        setLastClickedOperator(false);
+      } else if (event.key === '+' || event.key === '-' || event.key === '*' || event.key === '/') {
+        // If an operator key is pressed, add it to the input if the last click wasn't an operator
+        if (!lastClickedOperator) {
+          setInput(input + event.key);
+          setLastClickedOperator(true);
+        }
+      } else if (event.key === '.' && !input.includes('.')) {
+        // If the dot key is pressed and there's no dot already in the input, add it
+        setInput(`${input}.`);
+        setLastClickedOperator(false);
+      } else if (event.key === 'Enter') {
+        // If the Enter key is pressed, calculate the result
+        calculateResult();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyPress);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  });
+
   const handleClick = (value) => {
     if (value === '=') {
-      try {
-        const evaluate = new Function(`return ${input}`);
-        const res = evaluate();
-        setInput(res.toString());
-        setResult(res.toString());
-      } catch (error) {
-        setResult('Error');
-      }
+      calculateResult();
     } else if (value === 'C') {
       setInput('');
       setResult('');
@@ -29,6 +52,17 @@ export default function Home() {
     } else {
       setInput(input + value);
       setLastClickedOperator(false); // Reset last clicked operator when a number button is clicked
+    }
+  };
+
+  const calculateResult = () => {
+    try {
+      const evaluate = new Function(`return ${input}`);
+      const res = evaluate();
+      setInput(res.toString());
+      setResult(res.toString());
+    } catch (error) {
+      setResult('Error');
     }
   };
 
