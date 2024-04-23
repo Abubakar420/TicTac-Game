@@ -1,5 +1,7 @@
 /* eslint-disable no-use-before-define */
 import React, { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import TicTacBg from '../assets/pngwing.com (1).png';
 import '../css/TicTac.css';
 
@@ -23,8 +25,10 @@ function TicTacToe() {
     if (calculatedWinner) {
       setGameOver(true);
       setWinner(calculatedWinner);
+      toast.success(`Player ${calculatedWinner} wins!`);
     } else if (calculateDraw(newBoard)) {
       setGameOver(true);
+      toast.info('Game is a draw.');
     }
   };
 
@@ -36,15 +40,6 @@ function TicTacToe() {
     );
   };
 
-  let status;
-  if (winner) {
-    status = `Winner: ${winner}`;
-  } else if (gameOver) {
-    status = 'DRAW';
-  } else {
-    status = `Next player: ${xIsNext ? 'X' : 'O'}`;
-  }
-
   const handlePlayAgain = () => {
     setBoard(Array(9).fill(null));
     setXIsNext(true);
@@ -54,7 +49,7 @@ function TicTacToe() {
 
   return (
     <div className="game animationDiv">
-      <div className="status animationDiv">{status}</div>
+      <div className="status animationDiv">{`Next player: ${xIsNext ? 'X' : 'O'}`}</div>
       <div className="board">
         <div className="board-row">
           {renderSquare(0)}
@@ -92,6 +87,7 @@ function TicTacToe() {
           </div>
         </div>
       )}
+      <ToastContainer />
     </div>
   );
 }
